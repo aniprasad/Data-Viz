@@ -5,7 +5,7 @@ const screenHeight = 0.62 * (window.innerHeight || document.documentElement.clie
 const width = screenWidth - margin.left - margin.right;
 const height = screenHeight - margin.top - margin.bottom;
 
-// Create the SVG canvas with border
+// Create the SVG canvas
 const svg = d3
   .select("#chart")
   .attr("width", width)
@@ -16,7 +16,7 @@ const svg = d3
   .append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Sample data for the top-level facts
+// Top level data
 const first_chart_data = [
   { data_index: 1, fact: "23 Managers", value: 30, color: "orange" },
   { data_index: 4, fact: "Founded 1878", value: 17, color: "black"},
@@ -26,11 +26,9 @@ const first_chart_data = [
   { data_index: 5, fact: "First club to win treble", value: 50, color: "violet"},
 ];
 
-// Calculate the maximum value for scaling the bubble sizes
 const maxBubbleValue = d3.max(first_chart_data, (d) => d.value);
 
-// Set up the scales for the bubble sizes and positioning
-const radiusScale = d3.scaleSqrt().domain([0, maxBubbleValue]).range([10, 65]); // Increase the range to make the circles bigger
+const radiusScale = d3.scaleSqrt().domain([0, maxBubbleValue]).range([10, 65]);
 const xScale = d3.scaleBand().domain(first_chart_data.map((d) => d.fact)).range([50, width - 50]);
 const yScale = d3.scaleLinear().domain([0, maxBubbleValue]).range([height - 50, 50]);
 
@@ -45,7 +43,6 @@ const bubbles = svg
   .attr("r", (d) => radiusScale(d.value))
   .attr("fill", (d) => d.color);
 
-// Add labels to the bubbles
 const labels = svg
   .selectAll("text")
   .data(first_chart_data)
@@ -54,20 +51,19 @@ const labels = svg
   .attr("x", (d) => xScale(d.fact) + xScale.bandwidth() / 2)
   .attr("y", (d) => yScale(d.value))
   .attr("text-anchor", "middle")
-  .style("fill", "white") // Set text color to black
+  .style("fill", "white")
   .style("font-size", "12px")
   .text((d) => d.fact);
 
-// Adjust the text position within the circles
 labels.attr("transform", function (d) {
   const label = d3.select(this);
   const circle = d3.select(this.parentNode).select("circle");
-  const dx = 0; // Adjust the position offset based on circle radius
-  const dy = label.node().getBBox().height / 2; // Adjust the vertical position offset
+  const dx = 0;
+  const dy = label.node().getBBox().height / 2;
   return `translate(${dx}, ${dy})`;
 });
 
-// Add tooltips to the bubbles
+// Add tooltips
 bubbles
   .append("title")
   .text((d) => `${d.fact}: ${d.value}`);
@@ -97,15 +93,14 @@ bubbles.on("mouseover", function (event, d) {
   {
     fact = "About 2 Billion pounds spent in acquiring players since 1878 (adjusted for inflation) - One of the most popular clubs for players to join";
   }
-  console.log(d);
+
   tooltip_chart1
     .style("opacity", 0.9)
     .html(fact)
-    .style("left", `${event.pageX + 10}px`) // Position the tooltip to the right of the cursor
+    .style("left", `${event.pageX + 10}px`)
     .style("top", `${event.pageY}px`);
 });
 
-// Add mouseout event to hide the tooltip
 bubbles.on("mouseout", function () {
   tooltip_chart1.style("opacity", 0);
 });

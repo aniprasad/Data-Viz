@@ -2,88 +2,87 @@
 <html>
 <head>
   <style>
-    .tooltip, .tooltip3, .tooltipChart1 {
-      position: absolute;
-      background-color: #fff;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      pointer-events: none;
-      font-size: 12px;
-    }
-	/* Style for the container div */
-	.button-container {
-	  display: flex;
-	  justify-content: center;
-	  margin-top: 20px; /* Adjust this value to control the spacing between the buttons and the content above */
-	}
+	  .tooltip, .tooltip3, .tooltipChart1 {
+	    position: absolute;
+	    background-color: #fff;
+	    padding: 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    pointer-events: none;
+	    font-size: 12px;
+	  }
 
-	/* Style for the buttons */
-	.button-container a {
-	  margin: 0 10px; /* Adjust this value to control the spacing between the buttons */
-	  padding: 10px 20px;
-	  background-color: #f0f0f0;
-	  border: 1px solid #ccc;
-	  text-decoration: none;
-	  color: #333;
-	  border-radius: 5px;
-	}
+		.button-container {
+		  display: flex;
+		  justify-content: center;
+		  margin-top: 20px; 
+		}
 
-	.button-container a:hover {
-	  background-color: #ccc;
-	}
+		.button-container a {
+		  margin: 0 10px; 
+		  padding: 10px 20px;
+		  background-color: #f0f0f0;
+		  border: 1px solid #ccc;
+		  text-decoration: none;
+		  color: #333;
+		  border-radius: 5px;
+		}
 
-	.chart-heading {
-	  font-size: 24px;
-	  font-weight: bold;
-	  text-align: center;
-	  margin-bottom: 20px;
-	}
+		.button-container a:hover {
+		  background-color: #ccc;
+		}
 
-	.pageOnePara {
-  		margin: 20px 20px 20px 20px;
-      	line-height: 1.3;
-      	font-size: 20px;
-	}
+		.chart-heading {
+		  font-size: 24px;
+		  font-weight: bold;
+		  text-align: center;
+		  margin-bottom: 20px;
+		}
 
-	.pageTwoPara {
-  		margin: 20px 20px 20px 20px;
-      	line-height: 1.3; 
-      	font-size: 20px;
-	}
+		.pageOnePara {
+	  		margin: 20px 20px 20px 20px;
+	      	line-height: 1.3;
+	      	font-size: 20px;
+		}
 
-	.pageThreePara {
-  		margin: 20px 20px 20px 20px;
-      	line-height: 1.3;
-      	font-size: 20px;
-	}
+		.pageTwoPara {
+	  		margin: 20px 20px 20px 20px;
+	      	line-height: 1.3; 
+	      	font-size: 20px;
+		}
 
-	.dropdown-container {
-	  position: relative; /* Set the positioning context for absolute positioning */
-	  padding: 20px; /* Add padding to the container */
-	}
+		.pageThreePara {
+	  		margin: 20px 20px 20px 20px;
+	      	line-height: 1.3;
+	      	font-size: 20px;
+		}
 
-	#dropdown, #dropdown3 {
-	  position: absolute;
-	  left: 20px; /* Adjust this value to control the distance from the left edge */
-	  top: 40px; /* Adjust this value to control the distance from the top edge */
-	  font-size: 16px; /* Increase the font size to make it more prominent */
-	  font-weight: bold;
-	  color: #333;
-	}
+		.dropdown-container {
+		  position: relative;
+		  padding: 20px;
+		}
 
-	#seasonplaceholder3 {
-	  position: absolute;
-	  left: 20px; /* Adjust this value to control the distance from the left edge */
-	  top: 60px; /* Adjust this value to control the distance from the top edge */
-	  font-size: 16px; /* Increase the font size to make it more prominent */
-	  font-weight: bold;
-	  color: #333;
-	}
+		#dropdown, #dropdown3 {
+		  position: absolute;
+		  left: 20px;
+		  top: 40px;
+		  font-size: 16px;
+		  font-weight: bold;
+		  color: #333;
+		}
 
-	.legendContainer {
-		margin: 0px 0px 0px 20px;
-	}
+		#seasonplaceholder3 {
+		  position: absolute;
+		  left: 20px;
+		  top: 60px;
+		  font-size: 16px;
+		  font-weight: bold;
+		  color: #333;
+		}
+
+		.legendContainer {
+			margin: 0px 0px 0px 20px;
+		}
 
   </style>
 </head>
@@ -91,70 +90,70 @@
   <div id="pageOne">
   	<h1 class="chart-heading">A Deep Dive into Manchester United's performance across 10 seasons</h1>
   	<svg id="chart"></svg>
-  	<div id="tooltipChart1" class="tooltipChart1" style="opacity: 0;"></div>
-	<div class="button-container">
-  		<a href="#" id="nextLink1">Next</a>
-	</div>
-	<p class="pageOnePara"> Manchester United Football Club, is a professional football club based in Old Trafford, Manchester, United Kingdom. It was founded as Newton Heath LYR in 1878. Manchester United stands as a beacon of sporting brilliance, boasting a record of triumphs and trophies that have left an inedible mark on the game. Take a look at the chart above to see just a few of their achievements. They are the most successful English football team, having won 20 Premier league titles more than any other team. They were also the first English club to win the historic treble, winning the Premier League, the F.A cup, and the coveted UEFA Champions League in 1999. Readers can also hover over some of the circles, to see extra information so they can familiarize themselves with what Manchester United is all about.</p>
+  	<div id="tooltipChart1" class="tooltipChart1" style="opacity: 0;">
+  	</div>
+		<div class="button-container">
+  			<a href="#" id="nextLink1">Next</a>
+		</div>
+		<p class="pageOnePara"> Manchester United Football Club, is a professional football club based in Old Trafford, Manchester, United Kingdom. It was founded as Newton Heath LYR in 1878. Manchester United stands as a beacon of sporting brilliance, boasting a record of triumphs and trophies that have left an inedible mark on the game. Take a look at the chart above to see just a few of their achievements. They are the most successful English football team, having won 20 Premier league titles more than any other team. They were also the first English club to win the historic treble, winning the Premier League, the F.A cup, and the coveted UEFA Champions League in 1999. Readers can also hover over some of the circles, to see extra information so they can familiarize themselves with what Manchester United is all about.</p>
 
-	<p class="pageOnePara">Dive into this visualization by looking at Manchester United's performance over a period of 11 years from 2006 to 2017. This visualization covers home performance, as well as season performance, allowing viewers to notice how much of a role home performance plays in a team doing well. Viewers can also notice the dips in performance in certain seasons due to managerial changes as denoted by the annotation lines. Further more, the viewer can also toggle between seasons via the dropdown to look at statistics pertaining to that season. Click "Next" to begin the journey!</p>
+		<p class="pageOnePara">Dive into this visualization by looking at Manchester United's performance over a period of 11 years from 2006 to 2017. This visualization covers home performance, as well as season performance, allowing viewers to notice how much of a role home performance plays in a team doing well. Viewers can also notice the dips in performance in certain seasons due to managerial changes as denoted by the annotation lines. Further more, the viewer can also toggle between seasons via the dropdown to look at statistics pertaining to that season. Click "Next" to begin the journey!</p>
   </div>
 
-<div id="pageTwo" style="display:none">
-	<h1 class="chart-heading">Manchester United Home Performance Summary from 2006 to 2018</h1>
-	<div id="dropdown">Season </div>
-	<div id="chart2"></div>
-	<div class="legendContainer">
-		<div id="legend"><u>Legend </u></div>
+	<div id="pageTwo" style="display:none">
+		<h1 class="chart-heading">Manchester United Home Performance Summary from 2006 to 2018</h1>
+		<div id="dropdown">Season </div>
+		<div id="chart2"></div>
+		<div class="legendContainer">
+			<div id="legend"><u>Legend </u>
+			</div>
+		</div>
+		<div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+		<div class="button-container">
+		    <a href="#" id="prevLink2">Previous</a>
+		    <a href="#" id="nextLink2">Next</a>
+		</div>
+	  <p class="pageTwoPara">This chart showcases Manchester United's home performance over a period of 10 years. It details each team they played against, the number of home goals scored and conceded (which is color coded for the convenience of the reader) and the result of the match (which is placed on top of the stacked bar chart). On hover, it also show cases, the individual stats of each match, namely the goals scored, conceded, and the result. Readers can quickly toggle between various seasons using the dropdown</p>
+
+	  <p class="pageTwoPara">Readers are encourage to toggle between seasons, to look at helpful annotations. For example, in the 2010-2011 season, Manchester United were unbeaten at home. They had only one draw, and dropped only 2 points out of a possible 57. Similarly, for other seasons the annotations provide some information regarding the change in managers and how that concided with a drop or improvement in home performance. In 2013-2014 for example, David Moyes was appointed as the new manager of Manchester United, and this resulted in a huge downturn in home performance.</p>
 	</div>
-	<div id="tooltip" class="tooltip" style="opacity: 0;"></div>
-	<div class="button-container">
-	    <a href="#" id="prevLink2">Previous</a>
-	    <a href="#" id="nextLink2">Next</a>
+
+	<div id="pageThree" style="display:none">
+		<h1 class="chart-heading">Manchester United High Level Stats from 2006 to 2018</h1>
+		<div id="dropdown3">Season </div>
+		<div id="seasonplaceholder3"><u>Finish Position:</u> <span id="finishPositionValue"></span> </div>
+		<div id="chart3"></div>
+		<div id="tooltip3" class="tooltip" style="opacity: 0;"></div>
+		  <div class="button-container">
+		    <a href="#" id="prevLink3">Previous</a>
+	    	<a href="#" id="homeLink">Start Again</a>
+		  </div>
+		<p class="pageThreePara">This final chart showcases data relevant to both home and away performance over the course of 10 seasons. Readers can look at this chart to look at the total number of goals scored, conceded, clean sheets, wins and losses for each season. Readers can also quickly refer back to the second chart to see how home performance correlates with a better overall season performance. While there isn't a very strong correlation, it is definitly seen, that a strong home performance results in a stronger peformance across the season. The reader can also know the overall position that Manchester United finished in at the end of the season, by referring to the "Finish Position" text. </p>
+
+		<p class="pageThreePara">Like the second chart, readers are encouraged to toggle between seasons, to look at annotations that provide a bit more context. For example, in the 2008-2009 season, Manchester United won the premier league for the third time in a row - an unprecedented achievement. In later seasons, the drop in performance is also attributed to poorer home performance as well as a change in managera who all have different coaching strategies. From 2013 - 2018, Manchester United only finished in the top four once.</p>
 	</div>
-    <p class="pageTwoPara">This chart showcases Manchester United's home performance over a period of 10 years. It details each team they played against, the number of home goals scored and conceded (which is color coded for the convenience of the reader) and the result of the match (which is placed on top of the stacked bar chart). On hover, it also show cases, the individual stats of each match, namely the goals scored, conceded, and the result. Readers can quickly toggle between various seasons using the dropdown</p>
 
-    <p class="pageTwoPara">Readers are encourage to toggle between seasons, to look at helpful annotations. For example, in the 2010-2011 season, Manchester United were unbeaten at home. They had only one draw, and dropped only 2 points out of a possible 57. Similarly, for other seasons the annotations provide some information regarding the change in managers and how that concided with a drop or improvement in home performance. In 2013-2014 for example, David Moyes was appointed as the new manager of Manchester United, and this resulted in a huge downturn in home performance.</p>
-</div>
-
-<div id="pageThree" style="display:none">
-	<h1 class="chart-heading">Manchester United High Level Stats from 2006 to 2018</h1>
-	<div id="dropdown3">Season </div>
-	<div id="seasonplaceholder3"><u>Finish Position:</u> <span id="finishPositionValue"></span> </div>
-	<div id="chart3"></div>
-	<div id="tooltip3" class="tooltip" style="opacity: 0;"></div>
-    <!-- <a href="#" id="prevLink3">Previous</a> -->
-	  <div class="button-container">
-	    <a href="#" id="prevLink3">Previous</a>
-    	<a href="#" id="homeLink">Start Again</a>
-	  </div>
-	<p class="pageThreePara">This final chart showcases data relevant to both home and away performance over the course of 10 seasons. Readers can look at this chart to look at the total number of goals scored, conceded, clean sheets, wins and losses for each season. Readers can also quickly refer back to the second chart to see how home performance correlates with a better overall season performance. While there isn't a very strong correlation, it is definitly seen, that a strong home performance results in a stronger peformance across the season. The reader can also know the overall position that Manchester United finished in at the end of the season, by referring to the "Finish Position" text. </p>
-
-	<p class="pageThreePara">Like the second chart, readers are encouraged to toggle between seasons, to look at annotations that provide a bit more context. For example, in the 2008-2009 season, Manchester United won the premier league for the third time in a row - an unprecedented achievement. In later seasons, the drop in performance is also attributed to poorer home performance as well as a change in managera who all have different coaching strategies. From 2013 - 2018, Manchester United only finished in the top four once.</p>
-</div>
-
-  <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
   <script src="https://d3js.org/d3.v6.js"></script>
   <script src="scripts/first_chart.js"></script>
   <script src="scripts/second_chart.js"></script>
   <script src="scripts/third_chart.js"></script>
   <script src="scripts/d3-annotation-min.js"></script>
   <script>
-    const pageOne = document.getElementById("pageOne");
-    const pageTwo = document.getElementById("pageTwo");
-    const pageThree = document.getElementById("pageThree");
-    const nextLink = document.getElementById("nextLink");
-    const prevLink = document.getElementById("prevLink");
+		const pageOne = document.getElementById("pageOne");
+		const pageTwo = document.getElementById("pageTwo");
+		const pageThree = document.getElementById("pageThree");
+		const nextLink = document.getElementById("nextLink");
+		const prevLink = document.getElementById("prevLink");
 
-	  // Page One to Page Two
-	  const nextLink1 = document.getElementById("nextLink1");
-	  nextLink1.addEventListener("click", function (event) {
-	    event.preventDefault();
-	    pageOne.style.display = "none";
-	    pageTwo.style.display = "block";
-	  });
+		// Page One to Page Two
+		const nextLink1 = document.getElementById("nextLink1");
+		nextLink1.addEventListener("click", function (event) {
+		event.preventDefault();
+		pageOne.style.display = "none";
+		pageTwo.style.display = "block";
+		});
 
-	    // Page Two to Page One
+    // Page Two to Page One
 	  const prevLink2 = document.getElementById("prevLink2");
 	  prevLink2.addEventListener("click", function (event) {
 	    event.preventDefault();
@@ -162,7 +161,7 @@
 	    pageOne.style.display = "block";
 	  });
 
-	    // Page Two to Page Three
+    // Page Two to Page Three
 	  const nextLink2 = document.getElementById("nextLink2");
 	  nextLink2.addEventListener("click", function (event) {
 	    event.preventDefault();

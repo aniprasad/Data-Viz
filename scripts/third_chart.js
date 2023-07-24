@@ -20,7 +20,7 @@ function createAnnotationArrow_ForChart3(x, y, description) {
 
   arrow
     .append("polygon")
-    .attr("points", `${x - 5},${y + 50} ${x + 5},${y + 50} ${x},${y + 60}`) // Positive value to point downwards
+    .attr("points", `${x - 5},${y + 50} ${x + 5},${y + 50} ${x},${y + 60}`)
     .attr("fill", "black")
 
   arrow
@@ -33,7 +33,6 @@ function createAnnotationArrow_ForChart3(x, y, description) {
     .style("fill", "black");
 }
 
-// Append the svg object to the body of the page
 const svg3 = d3
   .select("#chart3")
   .append("svg")
@@ -42,7 +41,6 @@ const svg3 = d3
   .append("g")
   .attr("transform", `translate(${margin3.left + margin3.left},${margin3.top * 2})`);
 
-// Define the dropdown
 const dropdown3 = d3
   .select("#dropdown3")
   .append("select")
@@ -51,7 +49,6 @@ const dropdown3 = d3
 let data3;
 
 function updateFinishPositionValue(selectedSeason) {
-  // Find the data for the selected season
   const selectedData = data3.find((d) => d.Season === selectedSeason);
   const season = selectedData.Season;
 
@@ -87,119 +84,109 @@ function updateFinishPositionValue(selectedSeason) {
   		break;
   }
 
-  // Update the text content of the "finishPositionValue" element
   d3.select("#finishPositionValue").text(position)
   	.style("color", "red")
 }
 
-  function updateChart3() {
-    const selectedSeason = dropdown3.property("value");
+function updateChart3() {
+  const selectedSeason = dropdown3.property("value");
 
-    // Filter the data for the selected season
-    const filteredData = data3.filter((d) => d.Season === selectedSeason);
+  const filteredData = data3.filter((d) => d.Season === selectedSeason);
 
-    // List of categories
-    const categories = filteredData.map((d) => d.Categories);
+  const categories = filteredData.map((d) => d.Categories);
 
-    // Clear the previous chart
-    svg3.selectAll("*").remove();
+  svg3.selectAll("*").remove();
 
-    // Add X axis
-    const x = d3.scaleBand()
-    	.domain(categories)
-    	.range([0, width3])
-    	.padding(0.2);
+  // Add X axis
+  const x = d3.scaleBand()
+  	.domain(categories)
+  	.range([0, width3])
+  	.padding(0.2);
 
-    svg3
-      .append("g")
-      .attr("transform", `translate(0, ${height3})`)
-      .call(d3.axisBottom(x));
+  svg3
+    .append("g")
+    .attr("transform", `translate(0, ${height3})`)
+    .call(d3.axisBottom(x));
 
-    // Add Y axis
-    const y = d3.scaleLinear().domain([0, d3.max(filteredData, (d) => d.Value)]).range([height3, 0]);
-    svg3.append("g").call(d3.axisLeft(y));
+  // Add Y axis
+  const y = d3.scaleLinear().domain([0, d3.max(filteredData, (d) => d.Value)]).range([height3, 0]);
+  svg3.append("g").call(d3.axisLeft(y));
 
-	  var selectedData = filteredData.find((d) => d.Season === "2013-2014" ||
-	    d.Season === "2017-2018" || d.Season == "2014-2015" || d.Season == "2008-2009");
+  var selectedData = filteredData.find((d) => d.Season === "2013-2014" ||
+    d.Season === "2017-2018" || d.Season == "2014-2015" || d.Season == "2008-2009");
 
-	  if (selectedData)
-	  {
-		selectedData = selectedData.Season;	  	
-	  }
-
-	  // selectedData = selectedData.Season;
-	  if (selectedData && selectedSeason === "2013-2014") {
-	    const xPosition = (width3 / 2) - 100; // Position arrow in the middle of the graph
-	    const yPosition = (height3 / 2) - 85; // Position arrow in the middle of the graph
-	    const description = "Poorer season defensively with David Moyes as manager"; // Replace this with your desired description
-	    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
-	  } else if (selectedData && selectedSeason === "2014-2015") {
-	    const xPosition = (width3 / 2) - 130; // Position arrow in the middle of the graph
-	    const yPosition = (height3 / 2) - 85; // Position arrow in the middle of the graph
-	    const description = "Good first season with Louis Van Gaal, but still poor defensively"; // Replace this with your desired description
-	    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
-	  } else if (selectedData && selectedSeason === "2017-2018") {
-	    const xPosition = (width3 / 2) - 150; // Position arrow in the middle of the graph
-	    const yPosition = (height3 / 2) - 85; // Position arrow in the middle of the graph
-	    const description = "Jose Mourinho, known as a typical defensive manager - Fewest goals conceded in last 10 years"; // Replace this with your desired description
-	    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
-	  } else if (selectedData && selectedSeason === "2008-2009") {
-	    const xPosition = (width3 / 2) - 150; // Position arrow in the middle of the graph
-	    const yPosition = (height3 / 2) - 85; // Position arrow in the middle of the graph
-	    const description = "Sir Alex Ferguson won the Premier league making it 3 champions in a row"; // Replace this with your desired description
-	    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
-	  }
-	  else {
-	    svg3.selectAll(".annotation-arrow3").remove(); // Remove the arrow if no data matches the selected season or if it's not "2006-2007"
-	  }
-
-    // Add bars
-    svg3
-      .selectAll(".bar")
-      .data(filteredData)
-      .enter()
-      .append("rect")
-      .attr("class", "bar")
-      .attr("x", (d) => x(d.Categories))
-      .attr("y", (d) => y(d.Value))
-      .attr("width", x.bandwidth())
-      .attr("height", (d) => height3 - y(d.Value))
-      .attr("fill", (d, i) => d3.schemeCategory10[i % 10]) // Use d3.schemeCategory10 to get different colors for each bar
-      .on("mouseover", function (event, d) {
-        tooltip3.transition().duration(200).style("opacity", 0.9);
-        tooltip3
-          .html(`Value: ${d.Value}`)
-          .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 28 + "px");
-      })
-      .on("mouseout", function () {
-        tooltip3.transition().duration(500).style("opacity", 0);
-      });
-
-
-	  // Call the function to update the finish position value
-	  updateFinishPositionValue(selectedSeason);
+  if (selectedData)
+  {
+	selectedData = selectedData.Season;	  	
   }
 
+  if (selectedData && selectedSeason === "2013-2014") {
+    const xPosition = (width3 / 2) - 100;
+    const yPosition = (height3 / 2) - 85;
+    const description = "Poorer season defensively with David Moyes as manager";
+    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
+  } else if (selectedData && selectedSeason === "2014-2015") {
+    const xPosition = (width3 / 2) - 130;
+    const yPosition = (height3 / 2) - 85;
+    const description = "Good first season with Louis Van Gaal, but still poor defensively";
+    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
+  } else if (selectedData && selectedSeason === "2017-2018") {
+    const xPosition = (width3 / 2) - 150;
+    const yPosition = (height3 / 2) - 85;
+    const description = "Jose Mourinho, known as a typical defensive manager - Fewest goals conceded in last 10 years";
+    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
+  } else if (selectedData && selectedSeason === "2008-2009") {
+    const xPosition = (width3 / 2) - 150;
+    const yPosition = (height3 / 2) - 85;
+    const description = "Sir Alex Ferguson won the Premier league making it 3 champions in a row";
+    createAnnotationArrow_ForChart3(xPosition, yPosition, description);
+  }
+  else {
+    svg3.selectAll(".annotation-arrow3").remove();
+  }
 
-  // Parse the Data and populate the dropdown
-  d3.csv("data/manchester_united_filtered_stats_transposed.csv").then(function (csvData) {
-    // Store the parsed data
-    data3 = csvData.map((d) => ({
-      ...d,
-      Value: parseInt(d.Value),
-    }));
+  svg3
+    .selectAll(".bar")
+    .data(filteredData)
+    .enter()
+    .append("rect")
+    .attr("class", "bar")
+    .attr("x", (d) => x(d.Categories))
+    .attr("y", (d) => y(d.Value))
+    .attr("width", x.bandwidth())
+    .attr("height", (d) => height3 - y(d.Value))
+    .attr("fill", (d, i) => d3.schemeCategory10[i % 10]) // Use d3.schemeCategory10 to get different colors for each bar
+    .on("mouseover", function (event, d) {
+      tooltip3.transition().duration(200).style("opacity", 0.9);
+      tooltip3
+        .html(`Value: ${d.Value}`)
+        .style("left", event.pageX + 10 + "px")
+        .style("top", event.pageY - 28 + "px");
+    })
+    .on("mouseout", function () {
+      tooltip3.transition().duration(500).style("opacity", 0);
+    });
 
-    const seasons = Array.from(new Set(data3.map((d) => d.Season)));
+  // Call the function to update the finishposition text
+  updateFinishPositionValue(selectedSeason);
+}
 
-    // Add options to the dropdown
-    dropdown3
-      .selectAll("option")
-      .data(seasons)
-      .enter()
-      .append("option")
-      .text((d) => d);
+// Parse the Data and populate the dropdown
+d3.csv("data/manchester_united_filtered_stats_transposed.csv").then(function (csvData) {
+  data3 = csvData.map((d) => ({
+    ...d,
+    Value: parseInt(d.Value),
+  }));
 
-    // Initial chart rendering
-    updateChart3();
-  });
+  const seasons = Array.from(new Set(data3.map((d) => d.Season)));
+
+  dropdown3
+    .selectAll("option")
+    .data(seasons)
+    .enter()
+    .append("option")
+    .text((d) => d);
+
+  // Initial chart rendering
+  updateChart3();
+});
