@@ -138,7 +138,7 @@ function updateChart3() {
   } else if (selectedData && selectedSeason === "2008-2009") {
     const xPosition = (width3 / 2) - 150;
     const yPosition = (height3 / 2) - 85;
-    const description = "Sir Alex Ferguson won the Premier league making it 3 champions in a row";
+    const description = "Sir Alex Ferguson won the Premier league making it 3 titles in a row";
     createAnnotationArrow_ForChart3(xPosition, yPosition, description);
   }
   else {

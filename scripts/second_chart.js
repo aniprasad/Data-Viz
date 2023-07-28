@@ -119,7 +119,7 @@ function updateChart() {
   } else if (selectedData && selectedSeason === "2017-2018") {
     const xPosition = (width2 / 2);
     const yPosition = (height2 / 2) - 85;
-    const description = "Jose Mourinho - extremely strong second season! (Only 2 home losses the whole season)";
+    const description = "Jose Mourinho - extremely strong second season! (Only 2 home losses)";
     createAnnotationArrow(xPosition, yPosition, description);
   } else if (selectedData && selectedSeason === "2010-2011") {
     const xPosition = (width2 / 2);
